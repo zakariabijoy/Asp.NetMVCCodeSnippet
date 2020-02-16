@@ -8,7 +8,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3D68F587-B978-4B18-B878-DAA29B64DD14}</ProjectGuid>
+    <ProjectGuid>{322D3E49-E586-4D8B-9680-2D0DDA56D4C0}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -18,7 +18,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44347</IISExpressSSLPort>
+    <IISExpressSSLPort>44380</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -174,13 +174,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002132046554_InitialMigration.cs" />
-    <Compile Include="Migrations\202002132046554_InitialMigration.Designer.cs">
-      <DependentUpon>202002132046554_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202002150742439_InitialMigaration.cs" />
+    <Compile Include="Migrations\202002150742439_InitialMigaration.Designer.cs">
+      <DependentUpon>202002150742439_InitialMigaration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002132058131_AddedEmployeeTables.cs" />
-    <Compile Include="Migrations\202002132058131_AddedEmployeeTables.Designer.cs">
-      <DependentUpon>202002132058131_AddedEmployeeTables.cs</DependentUpon>
+    <Compile Include="Migrations\202002150747484_EmployeesTableAdded.cs" />
+    <Compile Include="Migrations\202002150747484_EmployeesTableAdded.Designer.cs">
+      <DependentUpon>202002150747484_EmployeesTableAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002151201071_Updated Employee Tables.cs" />
+    <Compile Include="Migrations\202002151201071_Updated Employee Tables.Designer.cs">
+      <DependentUpon>202002151201071_Updated Employee Tables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -191,6 +195,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AppFiles\Images\default.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -212,6 +217,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Scripts.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -247,6 +253,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Employees\ViewAll.cshtml" />
+    <Content Include="Views\Employees\AddOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -265,11 +273,14 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202002132046554_InitialMigration.resx">
-      <DependentUpon>202002132046554_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002150742439_InitialMigaration.resx">
+      <DependentUpon>202002150742439_InitialMigaration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002132058131_AddedEmployeeTables.resx">
-      <DependentUpon>202002132058131_AddedEmployeeTables.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002150747484_EmployeesTableAdded.resx">
+      <DependentUpon>202002150747484_EmployeesTableAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002151201071_Updated Employee Tables.resx">
+      <DependentUpon>202002151201071_Updated Employee Tables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -288,9 +299,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>55251</DevelopmentServerPort>
+          <DevelopmentServerPort>2534</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44347/</IISUrl>
+          <IISUrl>https://localhost:44380/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
