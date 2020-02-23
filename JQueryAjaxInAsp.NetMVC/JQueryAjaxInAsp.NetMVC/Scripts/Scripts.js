@@ -18,7 +18,17 @@ function jQueryAjaxPost(form) {
             url: form.action,
             data: new FormData(form),
             success: function (response) {
-                $("#firstTab").html(response);
+                if (response.success) {
+                    $("#firstTab").html(response);
+                    refreshAddNewTab($(form).attr('data-resetUrl'), true);
+                    $.notify(response.message, "success");
+                    if (typeof activatejQueryTable !== 'undefined' && $.isFunction('activatejQueryTable'))
+                        activatejQueryTable();
+                }
+                else {
+                    $.notify(response.message, "error");
+                }
+              
             }
         }
         if ($(form).attr('enctype') == "multipart/form-data") {
@@ -31,3 +41,54 @@ function jQueryAjaxPost(form) {
 
     return false;
 }
+
+function refreshAddNewTab(resetUrl, showViewtab) {
+
+    $.ajax({
+        type:'GET',
+        url: resetUrl,
+        success: function(response) {
+            $("#secondTab").html(response);
+            $('ul.nav.nav-tabs a:eq(1)').html('Add New');
+            if (showViewtab)
+                $('ul.nav.nav-tabs a:eq(0)').tab('show');
+        }
+    });
+}
+
+function Edit(url) {
+
+    $.ajax({
+        type: 'GET',
+        url: url,
+        success: function(response) {
+            $("#secondTab").html(response);
+            $('ul.nav.nav-tabs a:eq(1)').html('Edit');
+            $('ul.nav.nav-tabs a:eq(1)').tab('show');
+
+        }
+    });
+}
+
+function Delete(url) {
+    if (confirm('Are you sure to delete this record?') == true) {
+        $.ajax({
+            type: 'POST',
+            url: url,
+            success: function (response) {
+                if (response.success) {
+                    $("#firstTab").html(response.html);
+                    $.notify(response.message, "warn");
+                    if (typeof activatejQueryTable !== 'undefined' && $.isFunction('activatejQueryTable'))
+                        activatejQueryTable();
+                } else {
+                    $.notify(response.message, "error");
+                }
+              
+               
+
+            }
+        });
+    }
+    }
+    

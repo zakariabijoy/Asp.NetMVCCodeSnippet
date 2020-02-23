@@ -12,7 +12,7 @@
     <title>AddOrEdit</title>
 </head>
 <body>
-    @using (Html.BeginForm("AddOrEdit","Employees", FormMethod.Post, new { enctype="multipart/form-data", onSubmit= "return jQueryAjaxPost(this);"}))
+    @using (Html.BeginForm("AddOrEdit","Employees", FormMethod.Post, new { enctype="multipart/form-data", onSubmit= "return jQueryAjaxPost(this);", data_resetUrl = Url.Action("AddOrEdit","Employees", new {id =0})})) 
     {
         @Html.AntiForgeryToken()
         
@@ -60,6 +60,10 @@
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="Save" class="btn btn-default" />
+                        @if (Model.Id != 0)
+                        {
+                            <a class="btn btn-success" onclick="refreshAddNewTab('@Url.Action("AddOrEdit","Employees", new {id=0})')"><i class="fa fa-plus"></i>Add</a>
+                        }
                     </div>
                 </div>
             </div>
