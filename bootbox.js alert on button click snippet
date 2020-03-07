@@ -1,0 +1,37 @@
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+    <script>
+        $(document).on("click", ".reservartionConfrim", function (e) {
+        
+        //getting column wise data from row 
+
+            var row = $(this).closest("tr");
+            var bpNumber = row.find("td").eq(2).text();
+            var roomName = row.find("td").eq(1).text();
+            var bookingId = row.find("td").eq(0).text();
+            var name = row.find("td").eq(3).text();
+
+         //end of getting column wise data from row 
+
+    var link = $(this).attr("href"); // "get" the intended link in a var
+    e.preventDefault();
+
+            bootbox.confirm({
+                message: "Booking Id : <strong>" + bookingId + "</strong><br> Room Name : <strong>" + roomName + "</strong><br> BP ID : <strong>" + bpNumber + "</strong><br> Officer's Name : <strong>" + name+"</strong><br><br><strong>Are you sure to confrim this reservation?</strong>",
+        buttons: {
+            confirm: {
+                label: 'Yes',
+                className: 'btn-success'
+            },
+            cancel: {
+                label: 'No',
+                className: 'btn-danger'
+            }
+        },
+        callback: function (result) {
+            if (result) {
+                document.location.href = link;
+            }
+        }
+    });
+});
+    </script>
